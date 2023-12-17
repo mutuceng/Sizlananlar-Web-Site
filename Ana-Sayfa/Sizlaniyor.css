@@ -6,6 +6,7 @@
     --green4: #7AB47A;
     --green5: #85A685;
     --green6: #B1D88F;
+    --navbar: #EEF0E5;
     --lightest-green: #DDEDDD;
 }
 
@@ -88,14 +89,8 @@ section{
 
 .Sizlanmalar {
     background-color: var(--green2);
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #304D30;
-  }
 
+}
   .sitem_kutu {
     background-color: #163020;
     color: #B6C4B6;
