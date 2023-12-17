@@ -112,4 +112,52 @@ section{
 
 .Sizlanmalar {
     background-color: var(--green2);
-}
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #304D30;
+  }
+
+  .sitem_kutu {
+    background-color: #163020;
+    color: #B6C4B6;
+    width: 800px;
+    height: 400px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 8px; 
+    padding: 50px;
+    position: relative;
+  }
+
+  .carousel-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .carousel-item {
+    padding: 20px; 
+  }
+
+  .kime {
+    position: absolute;
+    top: 20px;
+    left: 20px; 
+    margin: 0; 
+    background-color: #102317;
+    padding: 5px 10px;
+  }
+  .tarih{
+  position: absolute;
+    top: 85%;
+    left: 20px; 
+    margin: 0; 
+    background-color: #102317;
+    padding: 5px 10px;
+  }
