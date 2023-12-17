@@ -6,6 +6,7 @@
     --green4: #7AB47A;
     --green5: #85A685;
     --green6: #B1D88F;
+    --navbar: #EEF0E5;
     --lightest-green: #DDEDDD;
 }
 
@@ -112,4 +113,15 @@ section{
 
 .Sizlanmalar {
     background-color: var(--green2);
+}
+
+.footer {
+    background-color: var(--darkest-green);
+    height: fit-content;
+    
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--lightestgreen);
 }
