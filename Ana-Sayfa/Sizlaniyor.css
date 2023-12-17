@@ -84,31 +84,7 @@ section{
     margin-right: auto; 
 }
 
-.sitem_kutu.h1{
-    color: #163020;
-}
-.sitem_kutu {
-  background-color: #163020;
-  color: #B6C4B6;
-  width: 800px;
-  height: 400px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  border-radius: 8px; 
-  padding: 50px;
-}
 
-.carousel-inner {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.carousel-item {
-  padding: 20px; 
-}
 
 .Sizlanmalar {
     background-color: var(--green2);
