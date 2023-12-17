@@ -115,13 +115,4 @@ section{
     background-color: var(--green2);
 }
 
-.footer {
-    background-color: var(--darkest-green);
-    height: fit-content;
-    
-}
 
-.nav-item {
-    text-decoration: none;
-    color: var(--lightestgreen);
-}
