@@ -28,6 +28,55 @@ body {
     height: 60px;
     padding: 10px;
 }
+
+.nav-container
+{
+    position: sticky;
+    display: block;
+    overflow: visible;
+    top: 0;
+    height: auto;
+    flex-direction: column;
+    background-color: #dde1ca;
+
+}
+
+.navbar-nav .nav-link , .uyeol-button {
+    font-size: 28px; /* İstediğiniz boyuta ayarlayabilirsiniz */
+    font-family: "Batangas";
+  }
+
+.navbar-logo {
+    font-size: 36px;
+    font-family: "Batangas";
+    text-decoration: none;
+    color: #304D30;
+}
+
+.nav-button 
+{
+    background-color: #304D30;
+    color: #B1D88F;
+    font-size: 24px;
+    border-radius: 30%;
+    border-radius: 20px;
+    padding: 2px 5px 2px 5px ;
+    border: 2px solid #2A4D38;
+}
+
+.uyeol-button
+{
+    background-color: #B1D88F;
+    border:none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px ;
+}
+
+.profile-button
+{
+    border:none;
+    width: 32px;
+}
 .home {
     background-color: var(--lightest-green);
 }
