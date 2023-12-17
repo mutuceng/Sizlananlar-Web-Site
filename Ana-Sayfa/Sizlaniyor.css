@@ -1,0 +1,76 @@
+:root {
+    --darkest-green:#2A4D38;
+    --green1: #304D30;
+    --green2: #446952;
+    --green3: #6FAD6F;
+    --green4: #7AB47A;
+    --green5: #85A685;
+    --green6: #B1D88F;
+    --lightest-green: #B6C4B6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.home {
+    background-color: var(--lightest-green);
+    justify-content: center;
+
+}
+
+#searchInput {
+    border-radius: 20%;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Metin ortalaması */
+    padding: 10px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #006600;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--green3);
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.search-button i {
+    font-size: 16px;
+}
+
+  section{
+    height: 100vh;
+    display: flex;
+    background-color: var(--lightest-greeng);
+    align-items: center;
+  }
+
+#diagram 
+{
+    width: 800px;
+    height: 600px;
+}
+#complain-adam {
+    align-items: center;
+}
+
+#home-left {
+    align-items: center;
+}
