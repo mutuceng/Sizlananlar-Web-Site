@@ -6,18 +6,29 @@
     --green4: #7AB47A;
     --green5: #85A685;
     --green6: #B1D88F;
-    --lightest-green: #B6C4B6;
+    --lightest-green: #DDEDDD;
 }
+
+@font-face {
+    font-family: "Batangas";
+    src: url("./Assests/Fonts/Batangas\ Bold\ 700.otf") format("truetype");
+  }
 
 body {
     margin: 0;
     padding: 0;
     border: 0;
 }
+.sayac {
+    display: block;
+    background-color: var(--darkest-green);
+    z-index: 2;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
 .home {
     background-color: var(--lightest-green);
-    justify-content: center;
-
 }
 
 #searchInput {
@@ -27,14 +38,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Metin ortalaması */
+    text-align: center; 
     padding: 10px;
 }
 
 .search-input {
     padding: 10px;
     width: 60%;
-    border: 1px solid #006600;
+    border: none;
     border-radius: 20px 0 0 20px;
     outline: none;
 }
@@ -55,7 +66,7 @@ body {
     font-size: 16px;
 }
 
-  section{
+section{
     height: 100vh;
     display: flex;
     background-color: var(--lightest-greeng);
@@ -64,13 +75,41 @@ body {
 
 #diagram 
 {
-    width: 800px;
-    height: 600px;
-}
-#complain-adam {
-    align-items: center;
+    width: 50%;
 }
 
-#home-left {
-    align-items: center;
+#Complain-Adam , #diagram{
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.sitem_kutu.h1{
+    color: #163020;
+}
+.sitem_kutu {
+  background-color: #163020;
+  color: #B6C4B6;
+  width: 800px;
+  height: 400px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 8px; 
+  padding: 50px;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel-item {
+  padding: 20px; 
+}
+
+.Sizlanmalar {
+    background-color: var(--green2);
 }
