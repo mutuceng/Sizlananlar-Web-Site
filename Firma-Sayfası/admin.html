@@ -11,34 +11,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="nav-container">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-logo" href="#">SızlanDIRI</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            <span></span>
-            <span></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <button type="button" class="nav-button">Sızlanma</button></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <button type="button" class="nav-button">Sızlanma</button></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <button type="button" class="nav-button">Sızlanma</button></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <button type="button" class="nav-button">Sızlanma</button></a>
-              </li>
-            </button>
-          </div>
+  <div class="nav-container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Tüm Sızlanmalar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Güncel Sızlanmalar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">İşleme Alınanlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kapatılanlar</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="navbar-logo" href="#">SızlanDIRI</a>
+      </div>
+    </nav>
+  </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-3">
@@ -113,14 +114,13 @@
                     </div>
                   </div>
             </div>
-            <!-- Diğer kartları aynı şekilde ekleyin -->
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       $(document).ready(function(){
         $('.uyeol-button').click(function(){
-          window.location.href = 'giris_yap.html';
+      
         });
       });
     </script>

@@ -1,19 +1,8 @@
-:root {
-    --darkest-green:#2A4D38;
-    --green1: #304D30;
-    --green2: #446952;
-    --green3: #6FAD6F;
-    --green4: #7AB47A;
-    --green5: #85A685;
-    --green6: #B1D88F;
-    --navbar: #EEF0E5;
-    --lightest-green: #DDEDDD;
-}
-
 @font-face {
     font-family: "Batangas";
     src: url("./Assests/Fonts/Batangas\ Bold\ 700.otf") format("truetype");
   }
+
 
 .nav-container
 {
@@ -26,23 +15,27 @@
     background-color: #dde1ca;
 
 }
+
+.navbar-nav .nav-link{
+    font-size: 28px; /* İstediğiniz boyuta ayarlayabilirsiniz */
+    font-family: "Batangas";
+    background-color: #446952;
+    border: 2px solid #2A4D38;
+    border-radius: 20px;
+    color: #B1D88F;
+  }
+
+.navbar-nav {
+    gap: 20px;
+}
+
 .navbar-logo {
     font-size: 36px;
     font-family: "Batangas";
     text-decoration: none;
-    color: #304D30;
+    color: #2A4D38;
 }
 
-.nav-button 
-{
-    background-color: #304D30;
-    color: #B1D88F;
-    font-size: 24px;
-    border-radius: 30%;
-    border-radius: 20px;
-    padding: 2px 5px 2px 5px ;
-    border: 2px solid #2A4D38;
-}
 
 .card{
     margin-top: 30px;
