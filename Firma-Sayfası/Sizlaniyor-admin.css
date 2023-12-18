@@ -3,7 +3,9 @@
     src: url("./Assests/Fonts/Batangas\ Bold\ 700.otf") format("truetype");
   }
 
-
+body {
+    background-color: rgb(229, 168, 168);
+}
 .nav-container
 {
     position: sticky;
