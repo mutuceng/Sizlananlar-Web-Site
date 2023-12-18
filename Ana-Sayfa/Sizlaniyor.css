@@ -38,6 +38,7 @@ body {
     height: auto;
     flex-direction: column;
     background-color: #dde1ca;
+    z-index: 99;
 
 }
 
