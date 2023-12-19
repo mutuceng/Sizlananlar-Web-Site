@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sızlanıyor</title>
     <link rel="stylesheet" href="./Sizlaniyor.css">
+    <link rel="stylesheet" href="./footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <div class="sayac">
-            <h2 style="color: var(--green6); font-family: Batangas;">Çözüme Ulaşan Sızlanma Sayısı: </h2>
+            <h2 style="color: var(--green6); font-family: Batangas;">Çözüme Ulaşan Sızlanma Sayısı: 1035032 </h2>
         </div>
     </header>
     <div class="nav-container">
@@ -46,7 +48,7 @@
       </nav>
     </div>
 
-    <section class="home">
+    <section class="home" id="home">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6" id="home-left">
@@ -68,7 +70,7 @@
         
     </section>
 
-<section class="Sizlanmalar">
+<section class="Sizlanmalar" id="Sizlanmalar">
     <div id="carouselExample" class="carousel slide mt-5" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -182,6 +184,92 @@
         </button>
       </div>
     </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container text-center text-md-left">
+          <div class="row text-center text-md-left">
+              <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
+
+                  <h4 class="footer-header">
+                      SIZLANDIR
+                  </h4>
+                  <p style="color: #DDEDDD;"> Siz değerli müşterilerimizin memnuniyeti bizim için her şeyden önce gelir. Her birinizin deneyimi, bizim için bir öğrenme sürecidir ve sorunlarınızı çözmek, hizmet kalitemizi daha da artırmak için bir fırsattır. Bu nedenle, sizlere daha etkin bir çözüm sunmak adına "SızlanDIRI" şikayet çözüm platformumuzu geliştirdik.
+                  </p>
+
+              </div>
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3"> 
+                  <h4 class="footer-header">
+                      Bölümler
+                  </h4>
+                  <p>
+                      <a href="#home" class="footer-section">
+                          Anasayfa <br>
+                      </a>
+                      <a href="#Sizlanmalar" class="footer-section">
+                          Sızlanmalar <br>
+                      </a>
+                      <a href="#markalar" class="footer-section">
+                          Markalar
+                      </a>
+                  </p>
+              </div>
+
+              <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mt-3">
+                  <h4 class="footer-header">
+                      Bize Ulaşın
+                  </h4>
+                  <p>
+                      <i class="fas fa-home mr-3"></i>İzmir 123123213
+                  </p>
+                  <p>
+                      <i class="fas fa-envelope mr-3"></i>Mailadresi@mail.com
+                  </p>
+                  <p>
+                      <i class="fas fa-phone mr-3"></i>+901231231234
+                  </p>
+                  <p>
+                      <i class="fas fa-print mr-3"></i>+9090124853094
+                  </p>
+              </div>
+          </div>
+
+        <hr class="mb-4">
+
+        <div class="row align-items-center">
+          <div class="col-md-7 col-lg-8">
+              <p> Copyright ©2023 All rights reserved by:
+                  <strong class="copyright">
+                    Mutulaşberk
+                  </strong>
+              </p>
+
+          </div>
+          <div class="col-md-5 col-lg-4">
+              <div class="text-center text-md-right">
+                  <ul class="list-unstyled list-inline">
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+      </div>
+  </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.uyeol-button').click(function(){
+          window.location.href = 'giris_yap.html';
+        });
+      });
+    </script>
 </body>
 </html>
