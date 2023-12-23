@@ -182,3 +182,11 @@ section{
     background-color: #102317;
     padding: 5px 10px;
   }
+
+  .btn_btn-primary{
+    background-color: #304D30;
+    border-top-right-radius: 30%;
+    border-bottom-left-radius: 30%;
+    border: #102317 3px solid;
+    
+  }

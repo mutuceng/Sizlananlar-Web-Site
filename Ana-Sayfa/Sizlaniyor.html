@@ -35,7 +35,7 @@
                 <a class="nav-link" href="#">Markalar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"> <button type="button" class="nav-button">Sızlanma</button></a>
+                <a class="nav-link" href="#"> <button class="btn_btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Sızlanma</button></a>
               </li>
             </ul>
             <div class="btn-group">
@@ -185,6 +185,19 @@
       </div>
     </section>
 
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">SIZLANMA ALANI</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <input type="text" placeholder="Kime" name="Kime" id="firma_sikayet">
+    <input type="text" placeholder="Şikayet Başlığı" name="Şikayet Başlığı" id="firma_sikayet">
+    <input type="text" placeholder="Şikayet içeriği" style="height: 500px; width: 300px;" name="Şikayet İçeriği" id="firma_sikayet">
+    <button id="sikayet_kayit">Şikayeti Gönder</button>
+  </div>
+</div>
+
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container text-center text-md-left">
           <div class="row text-center text-md-left">
@@ -265,6 +278,7 @@
   </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      
       $(document).ready(function(){
         $('.uyeol-button').click(function(){
           window.location.href = 'giris_yap.html';
