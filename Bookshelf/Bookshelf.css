@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+        background-color:rgb(114, 141, 140)
+}
+
+.card{
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+.custom-card-header{
+    background-color: rgb(68, 105, 98);
+}
+.custom-card-footer{
+    background-color: rgb(68, 105, 98);
+}
+.card-body{
+    padding: 25px;
+    margin-top: -15px;
+    background-color: rgb(22, 48, 32);
+}
+h3,h5,h6,p{
+    color:whitesmoke;
+}
