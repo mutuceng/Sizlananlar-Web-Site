@@ -6,7 +6,11 @@
 body{
         background-color:rgb(114, 141, 140)
 }
-
+.container {
+    max-height: 680px; /* İstediğiniz maksimum yüksekliği belirtin */
+    overflow-y: scroll;
+    margin: auto;
+}
 .card{
     border: none;
 }
@@ -21,15 +25,15 @@ body{
     margin-top: -15px;
     background-color: rgb(22, 48, 32);
 }
-h3,p{
+h6,h3,p{
     color:whitesmoke;
 }
-h5,h6{
+h5{
     color: black;
 }
 a{
     text-decoration:none;
-    color: aliceblue;
+    color: gray;
     text-shadow: 2px;
     font-weight:600;
 }
