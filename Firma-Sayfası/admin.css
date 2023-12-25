@@ -38,6 +38,12 @@ body {
     color: #2A4D38;
 }
 
+.profile-button
+{
+    border: 2px solid black;
+    width: 36px;
+}
+
 
 .card{
     margin-top: 30px;
