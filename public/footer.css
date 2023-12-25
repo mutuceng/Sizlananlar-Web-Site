@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Batangas";
+    src: url("./Assests/Fonts/Batangas\ Bold\ 700.otf") format("truetype");
+  }
+.footer-header 
+{
+    color: #B1D88F;
+    font-family: "Batangas";
+    font-weight: bold;
+    font-size: 24px;
+
+}
+
+.copyright 
+{
+    color: #6FAD6F;
+}
+
+.footer-section 
+{
+    text-decoration: none;
+    color: #DDEDDD;
+    font-size: 24px;
+    text-align: left;
+
+}

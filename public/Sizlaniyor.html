@@ -290,7 +290,7 @@
       <input id="baslik" type="text" placeholder="Başlık..." name="baslik" required>
   
       <label for="sizlanma"><b>Sızlanma</b></label>
-      <textarea id="sizlan" type="text" placeholder="Sızlanın" name="sizlanma" required> </textarea>
+      <textarea id="sikayet" type="text" placeholder="Sızlanın" name="sizlanma" required> </textarea>
 
       <label for="firmalar"><b>Sorun Yaşadığınız:</b></label>
       <select class="form-control" id="firma" required>
@@ -324,6 +324,40 @@
     {
      $('.uyeol-button').click(function(){ window.location.href = 'giris_yap.html'; });
     }); 
+    </script>
+    <script>
+
+$('#sikayetgonder').click(function(){
+    var kullaniciadi = $("#kullaniciadi").val();
+    var baslik = $("#baslik").val();
+    var sikayet = $("#sikayet").val();
+    var firma = $("#firma").val();
+    var tarih = $("#tarih").val();
+    var sikayetdurumu = 'Cevap Bekliyor';
+
+    $.ajax({
+        url: '/submit-form-sikayet', 
+        method: 'POST',
+        data: {
+            kullaniciadi: kullaniciadi,
+            baslik: baslik,
+            sikayet: sikayet,
+            firma: firma,
+            tarih: tarih,
+            sikayetdurumu: sikayetdurumu
+        },
+        success: function(response) {
+            console.log('Veri başarıyla eklendi.');
+
+        },
+        error: function(error) {
+            console.error('Veri eklenirken bir hata oluştu:', error);
+
+        }
+    });
+});
+
+
     </script>
 </body>
 </html>

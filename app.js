@@ -91,6 +91,56 @@ app.post('/login',async(req,res)=> {
     
 })
 
+app.post('/submit-form-sikayet', async (req, res) => {
+    const { kullaniciadi, baslik, sikayet, firma, tarih, sikayetdurumu } = req.body;
+
+    try {
+
+        const query = `
+            INSERT INTO sizlan (kullaniciadi, baslik, sikayet, firma, tarih, sikayetdurumu)
+            VALUES ($1, $2, $3, $4, $5, $6)
+        `;
+        const values = [kullaniciadi, baslik, sikayet, firma, tarih, sikayetdurumu];
+
+        const client = await pool.connect();
+        await client.query(query, values);
+        client.release();
+
+        console.log('Veri başarıyla PostgreSQL veritabanına eklendi.');
+        
+
+        const selectQuery = 'SELECT * FROM sizlan';
+        const result = await pool.query(selectQuery);
+        const data = result.rows;
+
+        let cardHTML = '';
+        data.forEach(item => {
+            cardHTML += `
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header custom-card-header">
+                            <h5 class="card-title">${item.baslik}</h5>
+                        </div>
+                        <div class="card-body">
+                            <a href="#" class="card-text">${item.firma}</a>
+                            <p class="card-text">${item.sikayet}</p>
+                            <h6 class="card-subtitle">${item.tarih} Sitemkar: <a href="#">${item.kullaniciadi}</a></h6>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <p class="card-subtitle">Durumu: ${item.sikayetdurumu}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        res.send(cardHTML);
+
+    } catch (error) {
+        console.error('Veri eklenirken veya çekilirken bir hata oluştu:', error);
+        res.status(500).send('Veri işleme sırasında bir hata oluştu.');
+    }
+});
 
 app.listen(3000, () => {
     console.log('Sunucu çalışıyor: http://localhost:3000');
