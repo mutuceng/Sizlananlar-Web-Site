@@ -188,7 +188,7 @@ section{
   }
 
 .sizlan-container {
-    max-height: 600px; /* İstediğiniz maksimum yüksekliği belirtin */
+    max-height: 750px; /* İstediğiniz maksimum yüksekliği belirtin */
     overflow-y: scroll;
     margin: auto;
     background-color: var(--green2);
@@ -206,6 +206,7 @@ section{
   background-color: rgb(68, 105, 98);
 }
 .sizlan-container .card-body{
+  height: 200px;
   padding: 25px;
   margin-top: -15px;
   background-color: rgb(22, 48, 32);
