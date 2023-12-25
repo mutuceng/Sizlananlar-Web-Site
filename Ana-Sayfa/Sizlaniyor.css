@@ -183,6 +183,48 @@ section{
     padding: 5px 10px;
   }
 
+.tum-sizlanmalar {
+    background-color: var(--green2);
+  }
+
+.sizlan-container {
+    max-height: 750px; /* İstediğiniz maksimum yüksekliği belirtin */
+    overflow-y: scroll;
+    margin: auto;
+    background-color: var(--green2);
+    max-width: 1300px;
+    overflow-x:hidden;
+}
+.sizlan-container .card{
+  border: none;
+  margin: 10px;
+}
+.sizlan-container .custom-card-header{
+  background-color: var(--green1);
+}
+.sizlan-container .custom-card-footer{
+  background-color: rgb(68, 105, 98);
+}
+.sizlan-container .card-body{
+  height: 200px;
+  padding: 25px;
+  margin-top: -15px;
+  background-color: rgb(22, 48, 32);
+}
+
+.sizlan-container h6,h3,p{
+  color:whitesmoke;
+}
+.sizlan-container h5{
+  color: black;
+}
+
+.sizlan-container a {
+  text-decoration:none;
+  color: gray;
+  text-shadow: 2px;
+  font-weight:600;
+}
   .btn_btn-primary{
     background-color: #304D30;
     border-top-right-radius: 30%;
