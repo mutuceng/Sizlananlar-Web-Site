@@ -63,35 +63,74 @@ body{
 <body>
     <div class="translucent-box">
     <form class="login-form" id="login-form">
-        <input class="kurumsal" type="text" placeholder="Firma Adı" required>
-        <input class="kurumsal" type="text" placeholder="Adres" required>
-        <input class="kurumsal" type="email" placeholder="E-Mail Adresi" required>
-        <input class="kurumsal" type="tel" placeholder="Telefon Numarası" required>
+        <input id="firmaadi" class="kurumsal" type="text" placeholder="Firma Adı" required>
+        <input id="firmaadres" class="kurumsal" type="text" placeholder="Adres" required>
+        <input id="firmaemail" class="kurumsal" type="email" placeholder="E-Mail Adresi" required>
+        <input id="firmatelefonno" class="kurumsal" type="tel" placeholder="Telefon Numarası" required>
         <input class="kullanici" type="text" placeholder="Ad" required>
         <input class="kullanici" type="text" placeholder="Soyad" required>
         <input class="kullanici" type="text" placeholder="TC Kimlik Numarası" pattern="[0-9]{11}" title="TC Kimlik Numarası 11 basamak olmalıdır" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)" required>
         <label class="kullanici" for="dogum-tarihi">Doğum Tarihi:</label>
         <input class="kullanici"type="date" id="dogum-tarihi" name="dogum-tarihi" placeholder="GG/AA/YYYY">
         <input class="kullanici" type="text" placeholder="Kullanıcı Adı" required>
-        <input type="password" placeholder="Şifre (En az 6 karakter, 1 büyük harf)" pattern="(?=.*[A-Z]).{6,}" title="Şifre en az 6 karakter uzunluğunda olmalı ve en az 1 büyük harf içermelidir" required>
+        <input id="sifre" type="password" placeholder="Şifre (En az 6 karakter, 1 büyük harf)" pattern="(?=.*[A-Z]).{6,}" title="Şifre en az 6 karakter uzunluğunda olmalı ve en az 1 büyük harf içermelidir" required>
         <input type="checkbox"value="Onay" style="width: 10%;"><a href="#"> Kullanım Koşulları</a> Okudum Onayladım
         <button id="uye-ol-btn" type="submit">Üye Ol</button>
         <button id="kurumsal_btn">Kurumsal Kayıt</button>
     </form>
 </div>
 <script>
-   $(document).ready(function() {
-      $('#kurumsal_btn').on('click', function() {
-        $('.kullanici').fadeToggle(150);
-        $('.kurumsal').fadeToggle(150);
+    $(document).ready(function() {
+        $('#uye-ol-btn').on('click', function(event) {
+            event.preventDefault(); // Formun submit işlemini engellemek için
+
+            // Form verilerini al
+            var firmaadi = $('#firmaadi').val();
+            var firmaadres = $('#firmaadres').val();
+            var firmaemail = $('#firmaemail').val();
+            var firmatelefonno = $('#firmatelefonno').val();
+            var sifre = $('#sifre').val();
+
+            // Verileri sunucuya gönder
+            $.ajax({
+                url: '/submit-form', // Sunucuya gönderilecek URL
+                method: 'POST', // Veri gönderme metodunu belirtin (POST)
+                data: {
+                    firmaadi: firmaadi,
+                    firmaadres: firmaadres,
+                    firmaemail: firmaemail,
+                    firmatelefonno: firmatelefonno,
+                    sifre : sifre
+                },
+                success: function(response) {
+                    // İşlem başarılıysa burada gerekli işlemleri yapabilirsiniz
+                    console.log('Veri başarıyla sunucuya iletilmiştir.');
+                },
+                error: function(error) {
+                    // Hata durumunda burada gerekli işlemleri yapabilirsiniz
+                    console.error('Sunucuya veri gönderilirken bir hata oluştu:', error);
+                }
+            });
+        });
+    });
+</script>
+<script>
+  $(document).ready(function() {
+    // Kurumsal kayıt butonuna tıklandığında
+    $('#kurumsal_btn').on('click', function() {
+        // Kurumsal kayıt alanlarını aktif hale getir, kişisel kayıt alanlarını gizle ve inaktif yap
+        $('.kurumsal').prop('disabled', false).show();
+        $('.kullanici').prop('disabled', true).hide();
+        
+        // Buton metnini değiştir
         var buttonText = $(this).text();
         if (buttonText === "Kurumsal Kayıt") {
-          $(this).text("Kişisel Kayıt");
+            $(this).text("Kişisel Kayıt");
         } else {
-          $(this).text("Kurumsal Kayıt");
+            $(this).text("Kurumsal Kayıt");
         }
     });
-    });
+  });
 </script>
 </body>
 </html>
