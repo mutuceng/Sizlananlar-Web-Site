@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    body{
+        background-color: #163020
+    }
+        .translucent-box {
+    width: 600px;
+    height: 800px;
+    background-color: rgba(57, 91, 59, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+    .icon {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20%;
+}
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    height: 240px;
+    width: 280px;
+    padding: 20px;
+    background-color: #B6C4B6;
+    border-radius: 10px;
+}
+
+.login-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 20px;
+    background-color:#163020;
+    color:#B6C4B6;
+    border: none;
+    border-radius: 5px;
+}
+.onay{
+    position: absolute;
+    top: 90%;
+    left: 27%;
+}
+button{ margin: 3px;
+
+}
+@font-face {
+    font-family: "Batangas";
+    src: url("./Assests/Fonts/Batangas\ Bold\ 700.otf") format("truetype");
+  }
+
+    </style>
+</head>
+<body>
+    <div class="translucent-box">
+        <img src="icon.png" alt="İkon" class="icon">
+        <form class="login-form">
+            <input id="kullaniciusername" type="text" placeholder="Kullanıcı Adı" required>
+            <input id="sifre" type="password" placeholder="Şifre" required>
+            <button id="giris_yap_btn" type="submit">Giriş Yap</button>
+            <button id="uye-ol-btn" type="submit">Üye Ol</button>
+        </form>
+        </div>
+    
+        <script>
+            document.getElementById('uye-ol-btn').addEventListener('click', function() {
+            
+                window.location.href = 'uye_ol.html';
+            });
+        </script>
+        <script>
+            $('#giris_yap_btn').on('click',function(event) {
+                 event.preventDefault();
+                 var kullaniciusername = $('#kullaniciusername').val();
+                 var sifre = $('#sifre').val();
+                 $.ajax({
+                    url: '/login',
+                    method:'POST',
+                    data:{
+                        kullaniciusername: kullaniciusername,
+                        sifre: sifre
+                    },
+                    success: function (response) {
+                console.log('Sunucudan bilgiler alınıp giriş yapılmıştır.');
+            },
+            error: function (error) {
+                console.error('Sunucuya kişisel kayıt verileri alınırken bir hata oluştu:', error);
+            }
+                 })
+            });
+        </script>
+</body>
+</html>

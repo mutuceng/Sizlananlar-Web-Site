@@ -9,17 +9,30 @@ const client = new Client({
   port: 5432,
 });
 
-client.connect()
-  .then(() => console.log('PostgreSQL veritabanına bağlandı'))
-  .catch(err => console.error('Bağlantı hatası', err));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Örnek bir veri ekleme sorgusu
-const query = {
-  text: 'INSERT INTO firma(firmaadi, firmaadres, firmaemail,firmatelefonno,firmasifre) VALUES($1, $2,$3,$4,$5)',
-  values: ['MNG Kargo', 'İstiklal Mahallesi,122. Sokak','mngkargo@hotmail.com','5356264271','123456Mng'],
-};
+// Form gönderimini işleyen endpoint
+app.post('/submit-form', async (req, res) => {
+  try {
+    const { firmaadi, firmaaadres, firmaemail, firmatelefonno, sifre } = req.body;
 
-client.query(query)
-  .then(() => console.log('Veri başarıyla eklendi'))
-  .catch(err => console.error('Sorgu hatası', err))
-  .finally(() => client.end());
+    // Veritabanınızdaki gerçek tablo adıyla 'your_table_name' yerine değiştirin
+    const query = `
+      INSERT INTO firma (firmaadi, firmaadres, firmaemail, firmatelefonno, firmasifre) 
+      VALUES ($1, $2, $3, $4, $5)`;
+
+    // Form verileriyle sorguyu çalıştırma
+    await pool.query(query, [firmaadi, firmaaadres, firmaemail, firmatelefonno, sifre]);
+
+    res.status(200).send('Form verileri başarıyla veritabanına eklendi.');
+  } catch (error) {
+    console.error('Hata oluştu:', error);
+    res.status(500).send('Form işlenirken bir hata oluştu.');
+  }
+});
+
+const PORT = 8080; // Kullanılacak port numarasını değiştirin
+app.listen(PORT, () => {
+  console.log(`Sunucu ${PORT} numaralı portta çalışıyor`);
+});
