@@ -35,32 +35,50 @@ $(document).ready(function ()
             var yeniCardItem = '';
 
             $('.carousel-inner').append(yeniCarouselItem);
-            $('#profilCarousel').append(yeniCarouselItem);
+
+            var yeniCardItem = 
+            '<div class="col"> <div class="card"> <div class="card-header custom-card-header"> <h5 class="card-title">' + baslik + 
+            '</div> <div class="card-body"> <a href="#" class="card-text">' + secilenFirma + '</a> <p class="card-text">' + sizlan + 
+            '</p> <h6 class="card-subtitle">' + tarih + ' Sitemkar: <a href="#" >' + kullanici_adi + '</a></h6> </div> <div class="card-footer custom-card-footer">' + 
+            '<p class="card-subtitle"> Şikayet Durumu: ' + sikayetdurumu + '</p> </div> </div> </div>';
+
+            $('.sizlan-container .row').append(yeniCardItem);
 
             $('#sizlanForm')[0].reset();
-        })
+        });
         
 
 
-        $('#sikayetgonder').click(function(){
-            var sitemkar = $("#kullaniciadi").val();
-            var baslik = $("#baslik").val();
-            var icerik = $("#sizlan").val();
-            var firma =$("#firma").val();
-            var tarih =$("#tarih").val();
-            var durum = 'Cevap Bekliyor'
+        /*$('.sizlan-container .search-button').click(function(){
+            var arananKelime = $('.search-input').val().toLowerCase();
+
+            $('.card').each(function () {
+                var kartMetni = $(this).text().toLowerCase();
+                       
+                if (kartMetni.includes(arananKelime)) {
+                    $('.col').show();
+                } else {
+                    $('.col').hide();
+                }
+            });
+          }) */
         
-            var yeni_sikayet = '<div class="col">'+
-            '<div class="card">'+
-                '<div class="card-header custom-card-header">'+
-                    '<h5 class="card-title">'+baslik+'</h5> </div>'+
-                '<div class="card-body">'+
-                    '<a href="#" class="card-text">'+firma+'</a> <p class="card-text">'
-                    +icerik+'</p> <h6 class="card-subtitle">'+tarih+ 'Sitemkar: <a href="#" >'+sitemkar +'</a></h6> </div>'+
-                '<div class="card-footer custom-card-footer">'+
-                    '<p class="card-subtitle">Durum:'+ durum +'</p></div> </div>';
-        
-                    
-                    $('.row row-cols-1 row-cols-md-3 g-4 py-5').append(yeni_sikayet);
+        /*$(".search-input").on("click",function() {
+            var arananKelime = $('.search-input').val().toLowerCase();
+            $(".sizlan-container .row *").filter(function() 
+            {
+              $(this).toggle($(this).text().toLowerCase().indexOf(arananKelime) > -1)
+            });
+        }); */
+
+        $(".search-button").click(function () {
+            var arananKelime = $('.search-input').val().toLowerCase();
+            
+            $(".sizlan-container .card").filter(function () {
+              var kartMetni = $(this).text().toLowerCase();
+              return kartMetni.indexOf(arananKelime) > -1;
+            }).toggle(true);
+      
+            $(".sizlan-container .card").not(":visible").toggle(false);
           });
     });
