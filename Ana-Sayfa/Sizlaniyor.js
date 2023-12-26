@@ -21,7 +21,7 @@ $(document).ready(function ()
             var baslik = $('#baslik').val();
             var kullanici_adi = $('#kullaniciadi').val();
             var sizlan = $('#sizlan').val();
-            var secilenFirma = $('#firma').val();
+            var secilenFirma = $('#firma').val();  
             var tarih = $('#tarih').val();
             var sikayetdurumu = 'Cevap Bekliyor'
 
@@ -47,38 +47,25 @@ $(document).ready(function ()
             $('#sizlanForm')[0].reset();
         });
         
-
-
-        /*$('.sizlan-container .search-button').click(function(){
-            var arananKelime = $('.search-input').val().toLowerCase();
-
-            $('.card').each(function () {
-                var kartMetni = $(this).text().toLowerCase();
-                       
-                if (kartMetni.includes(arananKelime)) {
-                    $('.col').show();
-                } else {
-                    $('.col').hide();
-                }
-            });
-          }) */
-        
-        /*$(".search-input").on("click",function() {
-            var arananKelime = $('.search-input').val().toLowerCase();
-            $(".sizlan-container .row *").filter(function() 
-            {
-              $(this).toggle($(this).text().toLowerCase().indexOf(arananKelime) > -1)
-            });
-        }); */
-
-        $(".search-button").click(function () {
-            var arananKelime = $('.search-input').val().toLowerCase();
-            
-            $(".sizlan-container .card").filter(function () {
-              var kartMetni = $(this).text().toLowerCase();
-              return kartMetni.indexOf(arananKelime) > -1;
-            }).toggle(true);
-      
-            $(".sizlan-container .card").not(":visible").toggle(false);
-          });
+        function search() {
+            var arananKelime = document.getElementById("aranan").value.toLowerCase();
+            var basliklar = document.getElementsByClassName("card-title");
+            for (var i = 0; i < basliklar.length; i++) {
+              var baslik = basliklar[i].innerText.toLowerCase();
+          
+              function control(a, b) {
+                return a.includes(b);
+              }            
+          
+              var colParent = basliklar[i].parentNode.parentNode.parentNode;
+          
+              if (!control(baslik, arananKelime)) {
+                colParent.style.display = "none";
+              } else {
+                colParent.style.display = "flex";
+              }
+            }
+          }
+          
+          document.getElementById("arama").addEventListener("click", search);
     });
