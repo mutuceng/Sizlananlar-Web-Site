@@ -16,7 +16,7 @@ $(document).ready(function ()
         '<p class="card-subtitle"> Şikayet Durumu: ' + sikayetdurumu + '</p> </div> </div> </div>';
 
         $('.sizlan-container .row').append(yeniCardItem);
-
+        
     function search() 
     {
         var arananKelime = document.getElementById("aranan").value.toLowerCase();

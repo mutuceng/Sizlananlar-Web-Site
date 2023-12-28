@@ -25,6 +25,15 @@ $(document).ready(function ()
             var tarih = $('#tarih').val();
             var sikayetdurumu = 'Cevap Bekliyor'
 
+            localStorage.setItem("baslik",baslik);
+            localStorage.setItem("kullanici_adi",kullanici_adi);
+            localStorage.setItem("sizlan",sizlan);
+            localStorage.setItem("secilenFirma",secilenFirma);
+            localStorage.setItem("tarih",tarih);
+            localStorage.setItem("sikayetdurumu",sikayetdurumu);
+
+            alert("Sizlanma bilgileri kaydedildi.");
+
             var yeniCarouselItem =
                 '<div class="carousel-item">' +
                 '<h1 class="sistem_kutu" style="color: #102317;">' + baslik + '</h1>' +
