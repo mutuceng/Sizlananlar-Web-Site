@@ -14,19 +14,16 @@
     src: url("./Assests/Fonts/Batangas\ Bold\ 700.otf") format("truetype");
   }
 
-body {
-    background-color: rgb(229, 168, 168);
-}
 .nav-container
 {
-    position: sticky;
-    display: block;
-    overflow: visible;
-    top: 0;
-    height: auto;
-    flex-direction: column;
-    background-color: #dde1ca;
-
+  position: sticky;
+  display: block;
+  overflow: visible;
+  top: 0;
+  height: auto;
+  flex-direction: column;
+  background-color: #dde1ca;
+  z-index: 99;
 }
 
 .navbar-nav .nav-link{
