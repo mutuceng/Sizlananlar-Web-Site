@@ -71,9 +71,9 @@ button{ margin: 3px;
 <body>
     <div class="translucent-box">
         <img src="icon.png" alt="İkon" class="icon">
-        <form action="/kullanici/kullanicidogrula" method="get" class="login-form">
-            <input type="text" placeholder="Kullanıcı Adı" required>
-            <input type="password" placeholder="Şifre" required>
+        <form action="/kullanici/kullanicidogrula" method="post" class="login-form">
+            <input name="kadi" type="text" placeholder="Kullanıcı Adı" required>
+            <input name="sifre" type="password" placeholder="Şifre" required>
             <button type="submit">Giriş Yap</button>
             <button id="uye-ol-btn" type="submit">Üye Ol</button>
         </form>
