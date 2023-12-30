@@ -60,6 +60,10 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
+            </div> 
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)" >Sil</button>
             </div>           
         </div>
       </div>
@@ -77,7 +81,11 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
-            </div>           
+            </div> 
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
+            </div>          
         </div>
       </div>
       <div class="col">
@@ -96,8 +104,8 @@
                 <p class="card-subtitle">Durumu: Çözüldü</p>
             </div>
             <div class="card-button">
-              <button class="btn btn-primary">Buton 1</button>
-              <button class="btn btn-secondary">Buton 2</button>
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
             </div>
                     
         </div>
@@ -116,7 +124,11 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
-            </div>           
+            </div>  
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
+            </div>          
         </div>
       </div>
       <div class="col">
@@ -132,7 +144,11 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
-            </div>           
+            </div>   
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
+            </div>         
         </div>
       </div>
       <div class="col">
@@ -148,6 +164,10 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
+            </div> 
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
             </div>           
         </div>
       </div>
@@ -164,7 +184,11 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
-            </div>           
+            </div>  
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
+            </div>          
         </div>
       </div>
       <div class="col">
@@ -180,7 +204,11 @@
 
             <div class="card-footer custom-card-footer">
                 <p class="card-subtitle">Durumu: Çözüldü</p>
-            </div>           
+            </div>  
+            <div class="card-button">
+              <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+              <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
+            </div>          
         </div>
       </div>
       <div class="col">
@@ -202,6 +230,10 @@
           <div class="card-footer custom-card-footer">
             <p class="card-subtitle">Durumu: Cevap Bekliyor</p>
           </div>
+          <div class="card-button">
+            <button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button>
+            <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button>
+          </div> 
         </div>
       </div>
     
@@ -216,6 +248,80 @@
       
         });
       });
+      
     </script>
+<script>
+  function siltusu(button) {
+    var colIcerik = button.parentElement.parentElement.parentElement;
+    colIcerik.remove();
+  }
+
+  function cevapGoster(button) {
+  var sikayetler = button.parentElement.previousElementSibling;
+  var cevapolustumu = sikayetler.querySelector('textarea');
+
+  if (!cevapolustumu) {
+    var cevapalani = document.createElement('textarea');
+    cevapalani.classList.add('form-control', 'mt-3');
+    cevapalani.setAttribute('placeholder', 'Cevabınızı buraya yazınız...');
+    sikayetler.appendChild(cevapalani);
+
+    var gondertusu = document.createElement('button');
+    gondertusu.classList.add('btn', 'btn-success', 'mt-3', 'me-2');
+    gondertusu.textContent = 'Gönder';
+    gondertusu.onclick = function () {
+      cevapgonder(this);
+    };
+
+    var iptaltusu = document.createElement('button');
+    iptaltusu.classList.add('btn', 'btn-danger', 'mt-3');
+    iptaltusu.textContent = 'İptal';
+    iptaltusu.onclick = function () {
+      iptaletme(this);
+    };
+
+    sikayetler.appendChild(gondertusu);
+    sikayetler.appendChild(iptaltusu);
+
+    button.disabled = true;
+  }
+}
+
+function cevapgonder(button) {
+  var sikayetler = button.parentElement;
+  var cevap = sikayetler.querySelector('textarea').value;
+
+  var cevapkutusu = document.createElement('div');
+  cevapkutusu.classList.add('mt-3', 'p-3');
+  cevapkutusu.style.border = "3px solid black";
+  cevapkutusu.style.borderRadius = "10px"; 
+
+  var cevapyazisi = document.createElement('div');
+  cevapyazisi.textContent = 'Cevabınız:  ' + cevap;
+  cevapyazisi.style.fontWeight = "bold"; 
+  cevapyazisi.style.fontSize = "1.2em";
+  cevapkutusu.appendChild(cevapyazisi);
+  sikayetler.appendChild(cevapkutusu);
+
+  var iptaltusu = sikayetler.querySelector('.btn-danger');
+  sikayetler.removeChild(iptaltusu); // İptal butonunu sil
+  sikayetler.removeChild(button);
+  sikayetler.removeChild(sikayetler.querySelector('textarea'));
+}
+
+function iptaletme(button) {
+  var sikayetler = button.parentElement;
+  var iptaltusu = button;
+  var gondertusu = iptaltusu.nextElementSibling;
+  var cevapalani = gondertusu.previousElementSibling;
+
+  sikayetler.removeChild(iptaltusu); 
+  sikayetler.removeChild(gondertusu);
+  sikayetler.removeChild(cevapalani);
+
+  var replyButton = sikayetler.parentElement.querySelector('.btn-primary');
+  replyButton.disabled = false;
+}
+</script>
 </body>
 </html>
