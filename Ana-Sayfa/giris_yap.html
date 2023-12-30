@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <style>
     body{
         background-color: #163020
@@ -71,19 +73,29 @@ button{ margin: 3px;
 <body>
     <div class="translucent-box">
         <img src="icon.png" alt="İkon" class="icon">
-        <form action="/kullanici/kullanicidogrula" method="get" class="login-form">
-            <input type="text" placeholder="Kullanıcı Adı" required>
-            <input type="password" placeholder="Şifre" required>
-            <button type="submit">Giriş Yap</button>
-            <button id="uye-ol-btn" type="submit">Üye Ol</button>
+        <form class="login-form">
+            <label for="username"><b>Kullanıcı Adı</b></label>
+            <input id="kullaniciadi" type="text" placeholder="Username..." name="username" required>
+      
+            <label for="password"><b>Şifre</b></label>
+            <input id="sifre" type="text" placeholder="Password..." name="password" required>
+            <button id="girisyap" type="submit">Giriş Yap</button>
+            <button id="uyeol">Üye Ol</button>
         </form>
         </div>
     
         <script>
-            document.getElementById('uye-ol-btn').addEventListener('click', function() {
-            
-                window.location.href = 'uye_ol.html';
+            $(document).ready(function () 
+            {
+  
+
+                document.getElementById('uyeol').addEventListener('click', function() 
+                {            
+                    window.location.href = 'uye_ol.html';
+                });
             });
         </script>
+        <script src="giris-kayit.js"></script>
+      
 </body>
 </html>
