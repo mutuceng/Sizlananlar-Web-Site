@@ -3,6 +3,13 @@ var users = {
     "ulasucan": { isim: "Ulaş",soyad:"Uçan", kimlikno: "12547859624", dogumtarihi: "08-11-2004", adres:"Menemen Egekent",sifre: "ulas123D" },
     "mataberk": { isim: "Ataberk",soyad:"Öge", kimlikno: "12547859625", dogumtarihi: "08-11-2001", adres:"Menemen Seyrek",sifre: "ataberk123D" }
   };
+
+var brands = {
+    "Hepsiburada:": {ad: "Hepsiburada", adres: "İstanbul Kadıköy", email: "hepsiburada@gmail.com", telefonno: "03123001212", sifre: "hepsiburada123D"},
+    "Trendyol:": {ad: "Trendyol", adres: "", email: "trendyol@gmail.com", telefonno: "03123001313", sifre: "trendyol123D"},
+    "Şikayet Var": {ad: "Şikayetvar", adres: "", email: "", telefonno: "03123001414", sifre: "şikayetvar123D"},
+    "Aras Kargo": {ad: "ArasKargo", adres: "", email: "", telefonno: "03123001515", sifre: "aras123D"}
+}
   
   $(document).ready(function() {
       $('#register-form').submit(function(event) {
