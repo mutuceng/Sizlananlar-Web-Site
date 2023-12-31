@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-sZwNb/j7eFv9n1z7CX7st51iFv0cKNWt2KJyUsON1tOFqW2fr7nPLoAiS6iQyaD4tehYiQIvJqlm0Dw2W0K5Mw==" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
        body{
@@ -79,11 +78,11 @@
 
     </div>
     <script>
-  $(document).ready(function() {
+        $(document).ready(function() {
+    // Profil sayfasında localStorage'daki kullanıcı bilgilerini görüntüleme
     var loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
     if (loggedInUser) {
-        // Kullanıcı bilgilerini ilgili HTML elementlerine yerleştirme
         $('.list-group-item:eq(0)').text('İsim: ' + loggedInUser.isim);
         $('.list-group-item:eq(1)').text('Soyisim: ' + loggedInUser.soyad);
         // Diğer bilgileri de aynı şekilde güncelleyebilirsiniz

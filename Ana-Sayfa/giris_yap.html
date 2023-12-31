@@ -83,7 +83,18 @@ button{ margin: 3px;
             <button id="uyeol">Üye Ol</button>
         </form>
         </div>
-    
+        <script>
+            // Kullanıcı giriş yaptığında bu fonksiyon çalışacak
+            function loginUser() {
+                // Kullanıcı bilgilerini buradan alın
+                var username = document.getElementById('kullaniciadi').value;
+                // Buradan kullanıcının bilgilerini alabilirsiniz (sifre yerine kullanıcı bilgileri yer alacak)
+                var user = users[username];
+                // Kullanıcı bilgilerini localStorage'a kaydedin
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+            }
+        </script>
+        
         <script>
             $(document).ready(function () 
             {
