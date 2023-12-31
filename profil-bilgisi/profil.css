@@ -27,8 +27,50 @@
     margin-left: 40px;
 }
 .card-body {
-    height: 100px;
-  }
+  height: 100px;
+}
+.sizlan-container {
+  margin: auto;
+  max-width: 1300px;
+  overflow-x:hidden;
+}
+.sizlan-container .card{
+border: none;
+margin: 10px;
+}
+.sizlan-container .custom-card-header{
+background-color: var(--green3);
+}
+.sizlan-container .custom-card-footer{
+background-color: var(--green5);
+}
+.sizlan-container .card-body{
+height: 200px;
+padding: 25px;
+margin-top: -15px;
+background-color: rgb(22, 48, 32);
+}
+
+.sizlan-container h6,h3,p{
+color:antiquewhite;
+}
+.sizlan-container h5{
+color: black;
+}
+
+.sizlan-container a {
+text-decoration:none;
+color: var(--green4);
+text-shadow: 2px;
+font-weight:600;
+}
+
+.sizlan-container .card-button {
+  font-size: 10px;
+  width:200px;
+  justify-content: space-between;
+  padding: 10px;
+}
 .header {
     height: 80px;
     font-size: 40px;

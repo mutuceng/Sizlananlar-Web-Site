@@ -5,11 +5,11 @@ var users = {
   };
 
 var brands = {
-    "Hepsiburada:": {ad: "Hepsiburada", adres: "İstanbul Kadıköy", email: "hepsiburada@gmail.com", telefonno: "03123001212", sifre: "hepsiburada123D"},
-    "Trendyol:": {ad: "Trendyol", adres: "", email: "trendyol@gmail.com", telefonno: "03123001313", sifre: "trendyol123D"},
+    "hepsiburada": {ad: "Hepsiburada", adres: "İstanbul Kadıköy", email: "hepsiburada@gmail.com", telefonno: "03123001212", sifre: "hepsiburada123D"},
+    "trendyol": {ad: "Trendyol", adres: "", email: "trendyol@gmail.com", telefonno: "03123001313", sifre: "trendyol123D"},
     "Şikayet Var": {ad: "Şikayetvar", adres: "", email: "", telefonno: "03123001414", sifre: "şikayetvar123D"},
     "Aras Kargo": {ad: "ArasKargo", adres: "", email: "", telefonno: "03123001515", sifre: "aras123D"}
-}
+};
   
   $(document).ready(function() {
 
@@ -58,5 +58,23 @@ var brands = {
   
       });
   
-
+      $('.login-form').submit(function(event) 
+      {
+          event.preventDefault();
+          var kullaniciadi = $('#kullaniciadi').val();
+          var kullanicisifre = $('#sifre').val();
+  
+          var username = kullaniciadi;
+          var user = users[username];
+          if (( kullanicisifre == user.sifre))
+          {
+              alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
+              window.location.href = 'Sizlaniyor.html';
+          }
+          else
+          {
+              alert("Kullanıcı adı veya şifre yanlış.");
+          }
+  
+      });
   });

@@ -17,65 +17,65 @@ $(document).ready(function ()
 
         $('.sizlan-container .row').append(yeniCardItem);
         
-    function search() 
-    {
-        var arananKelime = document.getElementById("aranan").value.toLowerCase();
-        var basliklar = document.getElementsByClassName("card-title");
-        for (var i = 0; i < basliklar.length; i++) 
+        function search() 
         {
-            var baslik = basliklar[i].innerText.toLowerCase();
-        
-            function control(a, b) {
-            return a.includes(b);
-            }            
-        
-            var colParent = basliklar[i].parentNode.parentNode.parentNode;
-        
-            if (!control(baslik, arananKelime)) {
-            colParent.style.display = "none";
-            } else {
-            colParent.style.display = "flex";
-            }
-        }
-    };
-        
-    document.getElementById("arama").addEventListener("click", search);
-
-    function filtre(status)
-    {
-        var sikayetdurumlari = document.querySelectorAll('.card-footer .card-subtitle');
-        for (var i = 0; i < sikayetdurumlari.length; i++)
-        {
-            var durum = sikayetdurumlari[i].innerText.toLowerCase();
-            function control(a, b) 
+            var arananKelime = document.getElementById("aranan").value.toLowerCase();
+            var basliklar = document.getElementsByClassName("card-title");
+            for (var i = 0; i < basliklar.length; i++) 
             {
-                return a.includes(b);
-            }
+                var baslik = basliklar[i].innerText.toLowerCase();
             
-            var colParent = sikayetdurumlari[i].parentNode.parentNode.parentNode;
-
-            if (status == 'all')
-            {
-                colParent.style.display="flex";
-    
-            }
-            else if (status = 'open')
-            {
-                if(!control(durum,'cevap bekliyor'))
-                {
-                    colParent.style.display = "none";
+                function control(a, b) {
+                return a.includes(b);
+                }            
+            
+                var colParent = basliklar[i].parentNode.parentNode.parentNode;
+            
+                if (!control(baslik, arananKelime)) {
+                colParent.style.display = "none";
+                } else {
+                colParent.style.display = "flex";
                 }
-                else { colParent.style.display = "flex"; }
-
             }
-            else { alert("basarisiz");}
-        }        
-    }
-    document.getElementById("link1").addEventListener("click", function () {
-        filtre('all');
-    });
+        };
+        
+        document.getElementById("arama").addEventListener("click", search);
 
-    document.getElementById("link2").addEventListener("click", function () {
-        filtre('open');
-    });
+        function filtre(status)
+        {
+            var sikayetdurumlari = document.querySelectorAll('.card-footer .card-subtitle');
+            for (var i = 0; i < sikayetdurumlari.length; i++)
+            {
+                var durum = sikayetdurumlari[i].innerText.toLowerCase();
+                function control(a, b) 
+                {
+                    return a.includes(b);
+                }
+                
+                var colParent = sikayetdurumlari[i].parentNode.parentNode.parentNode;
+
+                if (status == 'all')
+                {
+                    colParent.style.display="flex";
+        
+                }
+                else if (status = 'open')
+                {
+                    if(!control(durum,'cevap bekliyor'))
+                    {
+                        colParent.style.display = "none";
+                    }
+                    else { colParent.style.display = "flex"; }
+
+                }
+                else { alert("basarisiz");}
+            }        
+        }
+        document.getElementById("link1").addEventListener("click", function () {
+            filtre('all');
+        });
+
+        document.getElementById("link2").addEventListener("click", function () {
+            filtre('open');
+        });
     });
