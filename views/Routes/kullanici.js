@@ -28,15 +28,16 @@ var users = {
 var brands = {
   "Hepsiburada:": {ad: "Hepsiburada", adres: "İstanbul Kadıköy", email: "hepsiburada@gmail.com", telefonno: "03123001212", sifre: "hepsiburada123D"},
   "Trendyol:": {ad: "Trendyol", adres: "", email: "trendyol@gmail.com", telefonno: "03123001313", sifre: "trendyol123D"},
-  "Şikayet Var": {ad: "Şikayetvar", adres: "", email: "", telefonno: "03123001414", sifre: "şikayetvar123D"},
-  "Aras Kargo": {ad: "ArasKargo", adres: "", email: "", telefonno: "03123001515", sifre: "aras123D"}
-}
+  "ŞikayetVar": {ad: "Şikayetvar", adres: "", email: "", telefonno: "03123001414", sifre: "şikayetvar123D"},
+  "ArasKargo": {ad: "ArasKargo", adres: "", email: "", telefonno: "03123001515", sifre: "aras123D"}
+};
 
 kullanici.post('/kullanicidogrula', (req, res) => {
   const { kadi, sifre } = req.body;
   var username = kadi;
   var user = users[username];
-  if (sifre == user.sifre){
+  var brand = brands[username];
+  if (sifre == user.sifre || sifre == brand.sifre ){
     res.sendFile(path.join(__dirname, '..', '..', 'profil-bilgisi', 'profil.html'));
   } else {
     res.send(

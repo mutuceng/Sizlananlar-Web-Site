@@ -5,11 +5,11 @@ var users = {
   };
 
 var brands = {
-    "Hepsiburada:": {ad: "Hepsiburada", adres: "İstanbul Kadıköy", email: "hepsiburada@gmail.com", telefonno: "03123001212", sifre: "hepsiburada123D"},
-    "Trendyol:": {ad: "Trendyol", adres: "", email: "trendyol@gmail.com", telefonno: "03123001313", sifre: "trendyol123D"},
+    "hepsiburada": {ad: "Hepsiburada", adres: "İstanbul Kadıköy", email: "hepsiburada@gmail.com", telefonno: "03123001212", sifre: "hepsiburada123D"},
+    "trendyol": {ad: "Trendyol", adres: "", email: "trendyol@gmail.com", telefonno: "03123001313", sifre: "trendyol123D"},
     "Şikayet Var": {ad: "Şikayetvar", adres: "", email: "", telefonno: "03123001414", sifre: "şikayetvar123D"},
     "Aras Kargo": {ad: "ArasKargo", adres: "", email: "", telefonno: "03123001515", sifre: "aras123D"}
-}
+};
   
   $(document).ready(function() {
       $('#register-form').submit(function(event) {
@@ -43,14 +43,24 @@ var brands = {
   
           var username = kullaniciadi;
           var user = users[username];
-          if (( kullanicisifre == user.sifre))
-          {
-              alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
-              window.location.href = 'Sizlaniyor.html';
-          }
-          else
-          {
-              alert("Kullanıcı adı veya şifre yanlış.");
+          var brand = brands[username];
+
+          var tip;
+
+          if (user && kullanicisifre == user.sifre) {
+            alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
+            tip = "user";
+            localStorage.setItem('tip',tip);
+            localStorage.setItem('kullaniciadi',kullaniciadi)
+            window.location.href = 'Sizlaniyor.html';
+          } else if ( brand && kullanicisifre == brand.sifre) {
+            alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
+            tip = "brand";
+            localStorage.setItem('tip',tip)
+            localStorage.setItem('kullaniciadi',kullaniciadi)
+            window.location.href = '../Firma-Sayfası/admin.html';
+          } else {
+            alert("Kullanıcı adı veya şifre yanlış.");
           }
   
       });
