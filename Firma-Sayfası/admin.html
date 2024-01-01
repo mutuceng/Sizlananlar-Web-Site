@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -244,9 +245,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       $(document).ready(function(){
-        $('').click(function(){
-      
-        });
+          // Sızlanıyor.js dosyasından localStorage'taki veriyi al
+var sizlanmalar = JSON.parse(localStorage.getItem('sizlanmalar'));
+
+// Şimdi bu veriyi kullanabilirsin, örneğin console.log ile kontrol etmek için:
+console.log(sizlanmalar); // Bu veriyi console'da görebilirsin
+
+// Bu veriyi admin.html sayfasındaki ilgili alanlara göndermek için gereken işlemleri yapabilirsin.
+// Örneğin, bir tablo oluşturup bu veriyi tablonun içine yerleştirebilirsin.
+
       });
       
     </script>
@@ -322,6 +329,80 @@ function iptaletme(button) {
   var replyButton = sikayetler.parentElement.querySelector('.btn-primary');
   replyButton.disabled = false;
 }
+$(document).ready(function () {
+    yeniKartOlustur('Kart Başlığı', 'Şikayet İçeriği', '24.12.2023', 'Kullanıcı Adı');
+   // localStorage'daki verileri al
+var sizlanmalar = Object.keys(localStorage).filter(key => key.startsWith('siz')).map(key => JSON.parse(localStorage.getItem(key)));
+
+// Eğer localStorage'da 'sizlanmalar' adında bir veri varsa ve içinde kartlar varsa
+if (sizlanmalar && sizlanmalar.length > 0) {
+    sizlanmalar.forEach(function(sikayet) {
+        // Her bir şikayet için yeni bir kart oluştur
+        yeniKartOlustur(sikayet.baslik, sikayet.sizlanma, sikayet.sizlanmatarihi, sikayet.kullaniciadi);
+    });
+}
+});
+
+function yeniKartOlustur(baslik, sizlanma, sizlanmatarihi, kullaniciadi) {
+   console.log('Kart olusuyor...')
+    var kartContainer = document.createElement('div');
+    kartContainer.classList.add('col'); // Kartın container'ını oluştur
+
+    var kart = document.createElement('div');
+    kart.classList.add('card'); // Kart elementini oluştur
+
+    var kartHeader = document.createElement('div');
+    kartHeader.classList.add('card-header', 'custom-card-header');
+    var baslikElement = document.createElement('h5');
+    baslikElement.classList.add('card-title');
+    baslikElement.textContent = baslik;
+    kartHeader.appendChild(baslikElement);
+    kart.appendChild(kartHeader);
+
+    var kartBody = document.createElement('div');
+    kartBody.classList.add('card-body');
+    var kartIcerik = document.createElement('p');
+    kartIcerik.classList.add('card-text');
+    kartIcerik.textContent = sizlanma;
+    var kartKullanici = document.createElement('h6');
+    kartKullanici.classList.add('card-subtitle');
+    kartKullanici.innerHTML = sizlanmatarihi + ' Sitemkar: <a href="#">' + kullaniciadi + '</a>';
+    kartBody.appendChild(kartIcerik);
+    kartBody.appendChild(kartKullanici);
+    kart.appendChild(kartBody);
+
+    var kartFooter = document.createElement('div');
+    kartFooter.classList.add('card-footer', 'custom-card-footer');
+    var durum = document.createElement('p');
+    durum.classList.add('card-subtitle');
+    durum.textContent = 'Durumu: Çözüldü';
+    kartFooter.appendChild(durum);
+    kart.appendChild(kartFooter);
+
+    var kartButton = document.createElement('div');
+    kartButton.classList.add('card-button');
+    var cevapButton = document.createElement('button');
+    cevapButton.classList.add('btn', 'btn-primary');
+    cevapButton.textContent = 'Cevapla';
+    cevapButton.onclick = function () {
+      cevapGoster(this);
+    };
+    var silButton = document.createElement('button');
+    silButton.classList.add('btn', 'btn-secondary');
+    silButton.textContent = 'Sil';
+    silButton.onclick = function () {
+      siltusu(this);
+    };
+    kartButton.appendChild(cevapButton);
+    kartButton.appendChild(silButton);
+    kart.appendChild(kartButton);
+
+    kartContainer.appendChild(kart);
+    document.querySelector('.row').appendChild(kartContainer);
+}
+// Daha sonra, localStorage'dan veriyi al ve kartları oluşturmak için kullan
+
+
 </script>
 </body>
 </html>
