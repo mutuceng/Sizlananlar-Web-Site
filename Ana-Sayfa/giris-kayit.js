@@ -67,7 +67,7 @@ var brands = {
           
         localStorage.setItem('users', JSON.stringify(users));
         
-        window.location.href = 'uye_ol.html';
+        window.location.href = 'giris_yap.html';
        
   
       });
