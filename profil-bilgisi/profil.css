@@ -18,6 +18,9 @@
     font-family: 'Batangas', sans-serif;
     align-items: center;
   }
+  body {
+    overflow-x:hidden;
+  }
 
   .card-img-top {
     border-radius: 30%;
@@ -31,12 +34,13 @@
 }
 .sizlan-container {
   margin: auto;
-  max-width: 1300px;
+  max-width: 1500px;
   overflow-x:hidden;
 }
 .sizlan-container .card{
 border: none;
-margin: 10px;
+margin-top: 20px;
+width: 400px;
 }
 .sizlan-container .custom-card-header{
 background-color: var(--green3);
