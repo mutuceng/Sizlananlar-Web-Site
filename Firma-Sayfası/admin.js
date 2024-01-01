@@ -2,20 +2,37 @@ $(document).ready(function ()
     {
         $('.profile-button').click(function(){ window.location.href = '../profil-bilgisi/profil.html'; });
 
-        var baslik = localStorage.getItem("baslik",baslik);
-        var kullanici_adi = localStorage.getItem("kullanici_adi",kullanici_adi);
-        var sizlan = localStorage.getItem("sizlan",sizlan);
-        var secilenFirma = localStorage.getItem("secilenFirma",secilenFirma);
-        var tarih = localStorage.getItem("tarih",tarih);
-        var sikayetdurumu = localStorage.getItem("sikayetdurumu",sikayetdurumu);
+        var kullanici_adi = localStorage.getItem("kullaniciadi");
 
-        var yeniCardItem = 
-        '<div class="col"> <div class="card"> <div class="card-header custom-card-header"> <h5 class="card-title">' + baslik + 
-        '</div> <div class="card-body"> <a href="#" class="card-text">' + secilenFirma + '</a> <p class="card-text">' + sizlan + 
-        '</p> <h6 class="card-subtitle">' + tarih + ' Sitemkar: <a href="#" >' + kullanici_adi + '</a></h6> </div> <div class="card-footer custom-card-footer">' + 
-        '<p class="card-subtitle"> Şikayet Durumu: ' + sikayetdurumu + '</p> </div> </div> </div>';
-
-        $('.sizlan-container .row').append(yeniCardItem);
+        var storedSizlanmalar = localStorage.getItem('sizlanmalar');
+        var retrievedSizlanmalar = JSON.parse(storedSizlanmalar);
+      
+        var sizSayi = localStorage.getItem("sizSayi");
+      
+        var i = 0;
+      
+        while (i < sizSayi) 
+        {
+          var sizno = "siz" + i;
+          var c = retrievedSizlanmalar ? retrievedSizlanmalar[sizno] : null;
+      
+          if (c && c.firma.toLowerCase() == kullanici_adi) {
+            console.log(c.firma);
+      
+            // CardItem değişkeni var olarak tanımlansın
+            var cardItem = '<div class="col"> <div class="card"> <div class="card-header custom-card-header"> <h5 class="card-title">' + c.baslik + 
+            '</div> <div class="card-body"> <a href="#" class="card-text">' + c.firma + '</a> <p class="card-text">' + c.sizlanma + 
+            '</p> <h6 class="card-subtitle">' + c.sizlanmatarihi + ' Sitemkar: <a href="#" >' + c.kullaniciadi + '</a></h6> </div> <div class="card-footer custom-card-footer">' + 
+            '<p class="card-subtitle"> Şikayet Durumu: ' + c.sizlandurumu + '</p> </div> <div class="card-button">' +
+            '<button class="btn btn-primary" onclick="cevapGoster(this)" >Cevapla</button> <button class="btn btn-secondary" onclick="siltusu(this)">Sil</button> </div> </div> </div>';
+      
+            $('.sizlan-container .row').append(cardItem);
+          } else {
+            console.log("Hata");
+          }
+      
+          i++;
+        }
         
         function search() 
         {

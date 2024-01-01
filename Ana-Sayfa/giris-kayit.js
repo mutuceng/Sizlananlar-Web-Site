@@ -100,7 +100,7 @@ var brands = {
             localStorage.setItem('kullaniciadi',kullaniciadi)
             window.location.href = 'Sizlaniyor.html';
           } else if ( a && kullanicisifre == a.sifre) {
-            alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
+            alert("Giriş başarılı. Admin Safyasına yönlendiriliyorsunuz.");
             localStorage.setItem('kullaniciadi',kullaniciadi)
             window.location.href = '../Firma-Sayfası/admin.html';
           } else {
