@@ -133,3 +133,11 @@
 .card-button .btn {
     gap: 20px;
 }
+.card-button{
+  background-color:var(--green4);
+  width: auto!important;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 10px;
+}
