@@ -11,101 +11,97 @@ var brands = {
     "Aras Kargo": {ad: "ArasKargo", adres: "", email: "", telefonno: "03123001515", sifre: "aras123D"}
 };
   
-  $(document).ready(function() {
+  $(document).ready(function() 
+  {
+    $('#register-form').submit(function(event) {
+      event.preventDefault(); // Formun submit işlemini engellemek için
 
+      var firmaadi = $('#firmaadi').val();
+      var firmaadres = $('#firmaadres').val();
+      var firmaemail = $('#firmaemail').val();
+      var firmatelefonno = $('#firmatelefonno').val();
+      var firmasifre = $('#sifre').val();
+      
+      var newBrand = {
+        ad: firmaadi,
+        adres: firmaadres,
+        email: firmaemail,
+        telefonno: firmatelefonno,
+        sifre: firmasifre
+      };
 
+      brands[firmaadi.toLowerCase()] = newBrand;
 
+      console.log("All Brands:");
+      for (var brandKey in brands) {
+          if (brands.hasOwnProperty(brandKey)) {
+              console.log(brands[brandKey]);
+          }
+      }
 
+      localStorage.setItem('brands', JSON.stringify(brands));
+      alert("Bilgiler Kaydedildi.");
 
-      $('#register-form').submit(function(event) {
-        event.preventDefault(); // Formun submit işlemini engellemek için
-  
-        var firmaadi = $('#firmaadi').val();
-        var firmaadres = $('#firmaadres').val();
-        var firmaemail = $('#firmaemail').val();
-        var firmatelefonno = $('#firmatelefonno').val();
-        var firmasifre = $('#sifre').val();
+      var kullaniciadi = $('#kullaniciadi').val();
+      var kullanicisoyadi = $('#kullanicisoyad').val();
+      var tckimlikno = $('#kullanicitckimlikno').val();
+      var dogumtarihi = $('#kullanicidogumtarihi').val();
+      var username = $('#kullaniciusername').val();
+      var kullanicisifre = $('#sifre').val();
+
+      var newUser = {
+        isim: kullaniciadi,
+        soyad: kullanicisoyadi,
+        kimlikno: tckimlikno,
+        dogumtarihi: dogumtarihi,
+        kullaniciadi: username,
+        sifre: kullanicisifre
+      };
+
+      users[username.toLowerCase()] = newUser;
+
         
-        var newBrand = {
-          ad: firmaadi,
-          adres: firmaadres,
-          email: firmaemail,
-          telefonno: firmatelefonno,
-          sifre: firmasifre
-        };
+      localStorage.setItem('users', JSON.stringify(users));
+      
+      window.location.href = 'giris_yap.html';
+      
 
-        brands[firmaadi.toLowerCase()] = newBrand;
-  
-        console.log("All Brands:");
-        for (var brandKey in brands) {
-            if (brands.hasOwnProperty(brandKey)) {
-                console.log(brands[brandKey]);
-            }
-        }
+    });
 
-        localStorage.setItem('brands', JSON.stringify(brands));
-        alert("Bilgiler Kaydedildi.");
-  
+    $('.login-form').submit(function(event) 
+    {
+        event.preventDefault();
         var kullaniciadi = $('#kullaniciadi').val();
-        var kullanicisoyadi = $('#kullanicisoyad').val();
-        var tckimlikno = $('#kullanicitckimlikno').val();
-        var dogumtarihi = $('#kullanicidogumtarihi').val();
-        var username = $('#kullaniciusername').val();
         var kullanicisifre = $('#sifre').val();
 
-        var newUser = {
-          isim: kullaniciadi,
-          soyad: kullanicisoyadi,
-          kimlikno: tckimlikno,
-          dogumtarihi: dogumtarihi,
-          kullaniciadi: username,
-          sifre: kullanicisifre
-        };
+        var storedBrands = localStorage.getItem('brands');
+        var retrievedBrands = JSON.parse(storedBrands);
 
-        users[username.toLowerCase()] = newUser;
+        var a = retrievedBrands[kullaniciadi];
 
-          
-        localStorage.setItem('users', JSON.stringify(users));
-        
-        window.location.href = 'giris_yap.html';
-       
-  
-      });
-  
-      $('.login-form').submit(function(event) 
-      {
-          event.preventDefault();
-          var kullaniciadi = $('#kullaniciadi').val();
-          var kullanicisifre = $('#sifre').val();
+        var storedUsers = localStorage.getItem('users');
+        var retrievedUsers = JSON.parse(storedUsers);
+    
+        var b = retrievedUsers[kullaniciadi];
 
-          var storedBrands = localStorage.getItem('brands');
-          var retrievedBrands = JSON.parse(storedBrands);
+        var username = kullaniciadi;
+        var user = users[username];
 
-          var a = retrievedBrands[kullaniciadi];
-
-          var storedUsers = localStorage.getItem('users');
-          var retrievedUsers = JSON.parse(storedUsers);
-      
-          var b = retrievedUsers[kullaniciadi];
-  
-          var username = kullaniciadi;
-          var user = users[username];
-
-          var brand = brands[username];
-          localStorage.setItem('kullanicisifre',kullanicisifre);
+        var brand = brands[username];
+        localStorage.setItem('kullanicisifre',kullanicisifre);
 
 
-          if (b && kullanicisifre == b.sifre) {
-            alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
-            localStorage.setItem('kullaniciadi',kullaniciadi)
-            window.location.href = 'Sizlaniyor.html';
-          } else if ( a && kullanicisifre == a.sifre) {
-            alert("Giriş başarılı. Admin Safyasına yönlendiriliyorsunuz.");
-            localStorage.setItem('kullaniciadi',kullaniciadi)
-            window.location.href = '../Firma-Sayfası/admin.html';
-          } else {
-            alert("Kullanıcı adı veya şifre yanlış.");
-          }
-  
-      });
+        if (b && kullanicisifre == b.sifre) {
+          alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
+          localStorage.setItem('kullaniciadi',kullaniciadi)
+          window.location.href = 'Sizlaniyor.html';
+        } else if ( a && kullanicisifre == a.sifre) {
+          alert("Giriş başarılı. Admin Safyasına yönlendiriliyorsunuz.");
+          localStorage.setItem('kullaniciadi',kullaniciadi)
+          window.location.href = '../Firma-Sayfası/admin.html';
+        } else {
+          alert("Kullanıcı adı veya şifre yanlış.");
+        }
+
+    });
   });
