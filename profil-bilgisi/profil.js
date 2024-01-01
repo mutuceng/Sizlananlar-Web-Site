@@ -38,15 +38,10 @@ $(document).ready(function ()
       }
 
 
+      var storedSizlanmalar = localStorage.getItem('sizlanmalar');
+      var retrievedBrands = JSON.parse(storedBrands);
+      var c = retrievedBrands[kullanici_adi]
 
 
-
-
-   
-    // if(brands.a)
-    // {
-    //     profilalt.innerText = "Firma"
-    // }
-    // else ()
 
 });

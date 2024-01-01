@@ -27,7 +27,7 @@ $(document).ready(function ()
         var sizlanmalar = {
           "siz1": { sizlanmaNo: "siz1", kullaniciadi: "mutu", baslik:"Hepsiburada keyfi sipariş iptali", sizlanma: "Anlamsız bir şekilde bu akşam yaptığım sipariş iptal edildi müşteri hizmetlerini aradığım zaman suistimal kelimesini kullandı paket ürün için nasıl bir suistimal olabilir açıklama yapmadılar. ", firma: "Hepsiburada", sizlanmatarihi: "01-01-2024", sizlandurumu: "Cevap Bekliyor"},
           "siz2": { sizlanmaNo: "siz2", kullaniciadi: "mutu", baslik:"Ürünü Defolu Elime Ulaştı", sizlanma: "Adidas Kramponlarım yırtık geldi. İade Talebi oluşturdum ancak ellerinde ürün olmadığı için geç bir gönderim tarihi verdiler", firma: "Hepsiburada", sizlanmatarihi: "30-11-2023", sizlandurumu: "Çözüldü"},
-          "siz3": { sizlanmaNo: "siz3", kullaniciadi: "mutu", baslik:"Siparişim Evime Uğramadan Geri Döndü", sizlanma: "Siparişin geliceği gün bizzat evde olmama rağmen, evde bulamadık diyerek siparişi geri gönderdiler", firma: "Aras Kargo", sizlanmatarihi: "24-11-2023", sizlandurumu: "Çözüldü" },
+          "siz3": { sizlanmaNo: "siz3", kullaniciadi: "mutu", baslik:"Siparişim Evime Uğramadan Geri Döndü", sizlanma: "D", firma: "Aras Kargo", sizlanmatarihi: "24-11-2023", sizlandurumu: "Çözüldü" },
           "siz4": { sizlanmaNo: "siz4", kullaniciadi: "ulasucan", baslik:"Kız arkadaşıma yılbaşı hediyesi olarak kar küresi sipariş vermiştim. Kargom kız arkadaşıma ulaştığında ezilmiş haldeydi. Kar küresi de paramparça olmuş.", sizlanma: "", firma: "Aras Kargo", sizlanmatarihi: "08-11-2023" , sizlandurumu: "Cevap Bekliyor"},
           "siz5": { sizlanmaNo: "siz5", kullaniciadi: "ulasucan", baslik:"Aras Kargo Başkasına Teslim Etmiş Kargomu", sizlanma: "Aras Kargo, kargomu teslim etmiş fakat başka birime teslimat yapmış, kim olduğu belli değil, kargom nerede bilmiyorum. Benden başkasına nasıl teslimat yapılıyor, haber verilmiyor. 'Adresteyim' diye uygulamadan belirtmiştim.", firma: "Aras Kargo", sizlanmatarihi: "13-10-2022", sizlandurumu: "Çözüldü" },
           "siz6": { sizlanmaNo: "siz6", kullaniciadi: "ulasucan", baslik:"Hepsiburada Yarın Kapında Büyük Yalan", sizlanma: "Hepsiburada'ya güvenerek '1 günde kargo' seçeneği olan satıcıdan dört gün önce yeni yıl hediyesi aldım. Ancak kargoya vermedikleri gibi, aradığımda veya mesaj yazdığımda hiçbir geri dönüş yapmadılar.", firma: "Hepsiburada", sizlanmatarihi: "20-09-2024", sizlandurumu: "Çözüldü" },
@@ -36,7 +36,7 @@ $(document).ready(function ()
           "siz9": { sizlanmaNo: "siz9", kullaniciadi: "mataberk", baslik:"Trendyol SMS Onayı Olmadan Para Kesti", sizlanma: "Trendyol'dan ürün aldım ancak kredi kartıma onay SMS gelmeden para çekildi. Güvenlik zaafiyeti oluşturduğundan şüpheleniyorum. Her zaman telefonuma gelen SMS güvenlik kodu ile alışveriş yaptım son alışverişimde kod gelmedi", firma: "Trendyol", sizlanmatarihi: "08-11-2024" ,sizlandurumu: "Çözüldü"},
           "siz10": { sizlanmaNo: "siz10", kullaniciadi: "mutu", baslik:"Şikayetlere cevap gelmiyor!", sizlanma: "Bazen o kadar geç geliyor ki cevap geldiğinde şikayetimin ne olduğunu hatırlamakta zorlanıyorum.", firma: "Şikayetvar", sizlanmatarihi: "08-11-2024" ,sizlandurumu: "Çözüldü." }
         };
-
+   
         var baslik = $('#baslik').val();
         var kullanici_adi = $('#kullaniciadi').val();
         var sizlan = $('#sizlan').val();
@@ -44,8 +44,16 @@ $(document).ready(function ()
         var tarih = $('#tarih').val();
         var sikayetdurumu = 'Cevap Bekliyor'
 
+        
+        var siz = "siz";
+        var i=11;
+      
+        var sizSayi = i;
+        var sizno = siz + sizSayi;
+        console.log(sizno);
+
         var newSizlanma = {
-          sizlanmaNo: siz11,
+          sizlanmaNo: sizno,
           kullaniciadi: kullanici_adi,
           baslik: baslik,
           sizlanma: sizlan,
@@ -54,7 +62,12 @@ $(document).ready(function ()
           sizlandurumu: sikayetdurumu
         };
 
-        sizlanmalar[sizlanmaNo.toLowerCase()] = newSizlanma;
+        sizlanmalar[sizno.toLowerCase()] = newSizlanma;
+        i++
+       
+   
+        localStorage.setItem('sizlanmalar', JSON.stringify(sizlanmalar));
+        alert("Bilgiler Kaydedildi.");
 
         localStorage.setItem("baslik",baslik);
         localStorage.setItem("kullanici_adi",kullanici_adi);
@@ -72,7 +85,7 @@ $(document).ready(function ()
             '<div class="tarih">Tarih: ' + tarih + '</div>' + '</div>' + '<h2 class="sistem_kutu"><b>Sitemkar: </b>' + kullanici_adi + '</h2>' + 
             '<h2 class="sistem_kutu"><b>Durum:</b><i style="color:crimson;"> '+ sikayetdurumu + '</i></h2>' + '</div>';
 
-        var yeniCardItem = '';
+        
 
         $('.carousel-inner').append(yeniCarouselItem);
 
