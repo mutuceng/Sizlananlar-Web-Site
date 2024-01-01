@@ -84,10 +84,6 @@ var brands = {
     
         var b = retrievedUsers[kullaniciadi];
 
-        var username = kullaniciadi;
-        var user = users[username];
-
-        var brand = brands[username];
         localStorage.setItem('kullanicisifre',kullanicisifre);
 
 

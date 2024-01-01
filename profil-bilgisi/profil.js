@@ -42,7 +42,7 @@ $(document).ready(function () {
 
   var i = 0;
 
-  while (i < sizSayi) {
+  while (i <= sizSayi) {
     var sizno = "siz" + i;
     var c = retrievedSizlanmalar ? retrievedSizlanmalar[sizno] : null;
 
