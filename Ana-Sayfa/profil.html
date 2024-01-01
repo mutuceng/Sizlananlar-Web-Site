@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-sZwNb/j7eFv9n1z7CX7st51iFv0cKNWt2KJyUsON1tOFqW2fr7nPLoAiS6iQyaD4tehYiQIvJqlm0Dw2W0K5Mw==" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+       body{
+        background-color: #B6C4B6;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header" id="baslik" >PROFİL BİLGİSİ</div>
+    </header>
+
+   <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-lg-5">
+            <div class="card" id="top" style="width: 18rem; background-color: var(--green5);">
+                <img class="card-img-top" src="./Assests/Images/profil.jpg" alt="Card image cap">
+                <div class="card-body">
+                <br>
+                  <h4 class="card-title">Müşteri Profili</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2 id="baslik">BİLGİLERİM</h2>
+            <div class="card" style="width: 20rem; background-color: var(--green5);">
+                <ul class="list-group">
+                    <li class="list-group-item">İsim: </li>
+                    <li class="list-group-item">Soyisim: </li>
+                    <li class="list-group-item"><i class="fas fa-phone-alt"></i> Telefon Numarası: 0574 585 9684</li>
+                    <li class="list-group-item">Email: </li>
+                    <li class="list-group-item">Doğum Tarihi: </li>
+                    <li class="list-group-item">Firma Adı: </li>
+                    <li class="list-group-item">Adres: </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12">
+            <hr style="border-top: 3px solid var(--darkest-green);">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <h2 id="baslik" style="text-align: center; text-decoration: underline;">Şikayetlerim</h2>
+            
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <!-- İlk Container -->
+                    <h2>Container 1</h2>
+                    <p>Container 1 içeriği buraya gelecek.</p>
+                </div>
+                
+                <div class="col-4">
+                    <!-- İkinci Container -->
+                    <h2>Container 2</h2>
+                    <p>Container 2 içeriği buraya gelecek.</p>
+                </div>
+                
+                <div class="col-4">
+                    <!-- Üçüncü Container -->
+                    <h2>Container 3</h2>
+                    <p>Container 3 içeriği buraya gelecek.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        $(document).ready(function() {
+    // Profil sayfasında localStorage'daki kullanıcı bilgilerini görüntüleme
+    var loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (loggedInUser) {
+        $('.list-group-item:eq(0)').text('İsim: ' + loggedInUser.isim);
+        $('.list-group-item:eq(1)').text('Soyisim: ' + loggedInUser.soyad);
+        // Diğer bilgileri de aynı şekilde güncelleyebilirsiniz
+    } else {
+        alert("Kullanıcı bilgileri bulunamadı. Lütfen giriş yapın.");
+        window.location.href = 'giris_yap.html';
+    }
+});
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+</body>
+</html>
