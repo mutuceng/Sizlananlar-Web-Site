@@ -1,7 +1,7 @@
 var users = {
-    "mutu": { isim: "Umut", soyad:"Tanrıverdi", kimlikno: "12547859623", dogumtarihi: "08-11-2002", adres:"Menemen Seyrek", sifre: "umut123D" },
-    "ulasucan": { isim: "Ulaş",soyad:"Uçan", kimlikno: "12547859624", dogumtarihi: "08-11-2004", adres:"Menemen Egekent",sifre: "ulas123D" },
-    "mataberk": { isim: "Ataberk",soyad:"Öge", kimlikno: "12547859625", dogumtarihi: "08-11-2001", adres:"Menemen Seyrek",sifre: "ataberk123D" }
+    "mutu": { isim: "Umut", soyad:"Tanrıverdi", kimlikno: "12547859623", dogumtarihi: "08-11-2002", kullaniciadi:"mutu", sifre: "umut123D" },
+    "ulasucan": { isim: "Ulaş",soyad:"Uçan", kimlikno: "12547859624", dogumtarihi: "08-11-2004", kullaniciadi:"ulasucan",sifre: "ulas123D" },
+    "mataberk": { isim: "Ataberk",soyad:"Öge", kimlikno: "12547859625", dogumtarihi: "08-11-2001", kullaniciadi:"mataberk",sifre: "ataberk123D" }
   };
 
 var brands = {
@@ -20,8 +20,26 @@ var brands = {
         var firmaemail = $('#firmaemail').val();
         var firmatelefonno = $('#firmatelefonno').val();
         var firmasifre = $('#sifre').val();
+        
+        var newBrand = {
+          ad: firmaadi,
+          adres: firmaadres,
+          email: firmaemail,
+          telefonno: firmatelefonno,
+          sifre: firmasifre
+        };
+
+        brands[firmaadi.toLowerCase()] = newBrand;
   
-        // buraya devam edicem
+        console.log("All Brands:");
+        for (var brandKey in brands) {
+            if (brands.hasOwnProperty(brandKey)) {
+                console.log(brands[brandKey]);
+            }
+        }
+
+        localStorage.setItem('brands', JSON.stringify(brands));
+        alert("Bilgiler Kaydedildi.");
   
         var kullaniciadi = $('#kullaniciadi').val();
         var kullanicisoyadi = $('#kullanicisoyad').val();
@@ -29,9 +47,23 @@ var brands = {
         var dogumtarihi = $('#kullanicidogumtarihi').val();
         var username = $('#kullaniciusername').val();
         var kullanicisifre = $('#sifre').val();
+
+        var newUser = {
+          isim: kullaniciadi,
+          soyad: kullanicisoyadi,
+          kimlikno: tckimlikno,
+          dogumtarihi: dogumtarihi,
+          kullaniciadi: username,
+          sifre: kullanicisifre
+        };
+
+        users[username.toLowerCase()] = newUser;
+
           
-        localStorage.setItem("kullanicibilgi", users[kullanici3] );
-        // buraya devam edicem
+        localStorage.setItem('users', JSON.stringify(users));
+        
+        window.location.href = 'uye_ol.html';
+       
   
       });
   
@@ -40,23 +72,29 @@ var brands = {
           event.preventDefault();
           var kullaniciadi = $('#kullaniciadi').val();
           var kullanicisifre = $('#sifre').val();
+
+          var storedBrands = localStorage.getItem('brands');
+          var retrievedBrands = JSON.parse(storedBrands);
+
+          var a = retrievedBrands[kullaniciadi];
+
+          var storedUsers = localStorage.getItem('users');
+          var retrievedUsers = JSON.parse(storedUsers);
+      
+          var b = retrievedUsers[kullaniciadi];
   
           var username = kullaniciadi;
           var user = users[username];
           var brand = brands[username];
+          localStorage.setItem('kullanicisifre',kullanicisifre);
 
-          var tip;
 
-          if (user && kullanicisifre == user.sifre) {
+          if (b && kullanicisifre == b.sifre) {
             alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
-            tip = "user";
-            localStorage.setItem('tip',tip);
             localStorage.setItem('kullaniciadi',kullaniciadi)
             window.location.href = 'Sizlaniyor.html';
-          } else if ( brand && kullanicisifre == brand.sifre) {
+          } else if ( a && kullanicisifre == a.sifre) {
             alert("Giriş başarılı. Anasayfaya yönlendiriliyorsunuz.");
-            tip = "brand";
-            localStorage.setItem('tip',tip)
             localStorage.setItem('kullaniciadi',kullaniciadi)
             window.location.href = '../Firma-Sayfası/admin.html';
           } else {

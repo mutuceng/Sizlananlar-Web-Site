@@ -1,23 +1,52 @@
 $(document).ready(function () 
 {
-    var tip = localStorage.getItem("tip",tip);
-    if (tip == "firma")
-    {
-        
-    }
-    var baslik = localStorage.getItem("baslik",baslik);
-    var kullanici_adi = localStorage.getItem("kullanici_adi",kullanici_adi);
-    var sizlan = localStorage.getItem("sizlan",sizlan);
-    var secilenFirma = localStorage.getItem("secilenFirma",secilenFirma);
-    var tarih = localStorage.getItem("tarih",tarih);
-    var sikayetdurumu = localStorage.getItem("sikayetdurumu",sikayetdurumu);
+  
 
-    var yeniCardItem = 
-    '<div class="col"> <div class="card"> <div class="card-header custom-card-header"> <h5 class="card-title">' + baslik + 
-    '</div> <div class="card-body"> <a href="#" class="card-text">' + secilenFirma + '</a> <p class="card-text">' + sizlan + 
-    '</p> <h6 class="card-subtitle">' + tarih + ' Sitemkar: <a href="#" >' + kullanici_adi + '</a></h6> </div> <div class="card-footer custom-card-footer">' + 
-    '<p class="card-subtitle"> Şikayet Durumu: ' + sikayetdurumu + '</p> </div> </div> </div>';
+    var storedBrands = localStorage.getItem('brands');
+    var retrievedBrands = JSON.parse(storedBrands);
+    var kullanici_adi = localStorage.getItem("kullaniciadi");
+    var kullanici_sifre = localStorage.getItem("kullanicisifre");
+    
+    var a = retrievedBrands[kullanici_adi];
 
-    $('.sizlan-container .row').append(yeniCardItem);
+    var storedUsers = localStorage.getItem('users');
+    var retrievedUsers = JSON.parse(storedUsers);
+
+    var b = retrievedUsers[kullanici_adi];
+
+
+    if (b && kullanici_sifre == b.sifre) {
+        $('.list-group-item:eq(0)').text('Adı: ' + b.isim);
+        $('.list-group-item:eq(1)').text('Soyisim: ' + b.soyad);
+        $('.list-group-item:eq(2)').hide();
+        $('.list-group-item:eq(3)').hide();
+        $('.list-group-item:eq(4)').text('Dogum Tarihi: ' + b.dogumtarihi);
+        $('.list-group-item:eq(5)').text('Kullanici adi: '+ b.kullaniciadi);
+        $('.list-group-item:eq(6)').hide();
+        $('#tip').text(''+ b.kullaniciadi);
+      } else if ( a && kullanici_sifre == a.sifre) {
+        $('.list-group-item:eq(0)').text('Firma Adı: ' + a.ad);
+        $('.list-group-item:eq(1)').hide();
+        $('.list-group-item:eq(2)').html('<i class="fas fa-phone-alt"></i> Telefon Numarası: ' + a.telefonno);
+        $('.list-group-item:eq(3)').text('Email: ' + a.email);
+        $('.list-group-item:eq(4)').hide();
+        $('.list-group-item:eq(5)').hide();
+        $('.list-group-item:eq(6)').text('Adres: ' + a.adres);
+        $('#tip').text(''+ a.ad);
+      } else {
+        alert("Giriş Başarısız.");
+      }
+
+
+
+
+
+
+   
+    // if(brands.a)
+    // {
+    //     profilalt.innerText = "Firma"
+    // }
+    // else ()
 
 });
