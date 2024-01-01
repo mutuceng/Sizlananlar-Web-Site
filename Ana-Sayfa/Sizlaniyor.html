@@ -30,13 +30,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Sızlanmalar</a>
+                <a class="nav-link active" aria-current="page" href="#tum-sizlanmalar">Sızlanmalar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Markalar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <button class="btn_btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Sızlanma</button></a>
+                <a class="nav-link active" href="#hakkimizda">Hakkımızda</a>
               </li>
             </ul>
             <div class="btn-group">
@@ -336,23 +333,9 @@
     </section>
 <!-- Tüm Sızlanmalar Görüntüleme Ekranı Bitiş -->
 
-<!-- Sızlan Buton İçerik Başlangıç -->
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">SIZLANMA ALANI</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <input type="text" placeholder="Kime" name="Kime" id="firma_sikayet">
-    <input type="text" placeholder="Şikayet Başlığı" name="Şikayet Başlığı" id="firma_sikayet">
-    <input type="text" placeholder="Şikayet içeriği" style="height: 500px; width: 300px;" name="Şikayet İçeriği" id="firma_sikayet">
-    <button id="sikayet_kayit">Şikayeti Gönder</button>
-  </div>
-</div>
-<!-- Sızlan Buton  İçerik Bitiş -->
 
 <!-- Footer Başlangıç -->
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer id="hakkimizda" class="bg-dark text-white pt-5 pb-4">
       <div class="container text-center text-md-left">
           <div class="row text-center text-md-left">
               <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
@@ -465,6 +448,10 @@
     <script src="Sizlaniyor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+      var kullanici_adi = localStorage.getItem("kullaniciadi");
+      var kullanici_sifre = localStorage.getItem("kullanicisifre");
+
+
       function openForm() 
       {
         document.getElementById("form").style.display = "block";
@@ -474,12 +461,6 @@
       {
         document.getElementById("form").style.display = "none";
       }
-
-    $(document).ready(
-    function()
-    {
-     $('.uyeol-button').click(function(){ window.location.href = 'giris_yap.html'; });
-    }); 
     </script>
 </body>
 </html>

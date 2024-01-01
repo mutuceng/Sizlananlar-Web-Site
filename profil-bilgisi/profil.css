@@ -49,7 +49,7 @@ background-color: var(--green3);
 background-color: var(--green5);
 }
 .sizlan-container .card-body{
-height: 200px;
+height: 210px;
 padding: 25px;
 margin-top: -15px;
 background-color: rgb(22, 48, 32);
@@ -86,4 +86,12 @@ font-weight:600;
 .list-group-item
 {
     background-color: #85A685;
+}
+.card-button{
+  background-color:var(--green4);
+  width: auto!important;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 10px;
 }

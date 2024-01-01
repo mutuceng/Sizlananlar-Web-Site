@@ -13,6 +13,7 @@ $(document).ready(function ()
     
     $('.uyeol-button').click(function(){ window.location.href = 'giris_yap.html'; });
     $('.profile-button').click(function(){ window.location.href = '../profil-bilgisi/profil.html'; });
+
     
     $('#sizlanForm').submit(function (event) 
     {
