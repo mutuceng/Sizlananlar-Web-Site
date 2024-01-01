@@ -80,18 +80,32 @@ body{
     </form>
 </div>
 <script>
-   $(document).ready(function() {
-      $('#kurumsal_btn').on('click', function() {
-        $('.kullanici').fadeToggle(150);
-        $('.kurumsal').fadeToggle(150);
-        var buttonText = $(this).text();
-        if (buttonText === "Kurumsal Kayıt") {
-          $(this).text("Kişisel Kayıt");
+
+$(document).ready(function() {
+    var kisiselekran = true;
+
+    $('#kurumsal_btn').on('click', function() {
+        if (kisiselekran) {
+
+            $('.kurumsal').prop('disabled', false).show();
+            $('.kullanici').prop('disabled', true).hide();
+
+
+            $(this).text("Kişisel Kayıt");
+            kisiselekran = false;
+            //şuan kurumsal girdi sayfasındasın
         } else {
-          $(this).text("Kurumsal Kayıt");
+
+            $('.kurumsal').prop('disabled', true).hide();
+            $('.kullanici').prop('disabled', false).show();
+
+
+            $(this).text("Kurumsal Kayıt");
+            kisiselekran = true;
+            //şuan kişisel girdi sayfasındasın
         }
     });
-    });
+});
 </script>
 </body>
 </html>

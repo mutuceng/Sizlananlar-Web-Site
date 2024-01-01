@@ -13,25 +13,7 @@ var brands = {
   
   $(document).ready(function() {
 
-    $('.login-form').submit(function(event) {
-        event.preventDefault();
-        var kullaniciadi = $('#kullaniciadi').val();
-        var kullanicisifre = $('#sifre').val();
 
-        var username = kullaniciadi;
-        var user = users[username];
-
-        if (kullanicisifre === user.sifre) {
-            alert("Giriş başarılı. Profil bilgilerinizi görüntülemek için profil sayfasına yönlendiriliyorsunuz.");
-
-            // Kullanıcı bilgilerini localStorage'a kaydetme
-            localStorage.setItem("loggedInUser", JSON.stringify(user));
-
-            window.location.href = 'profil.html';
-        } else {
-            alert("Kullanıcı adı veya şifre yanlış.");
-        }
-    });
 
 
 
