@@ -51,7 +51,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6" id="home-left">
-                    <img src="Complain-Adam.png" alt="Görsel" id="Complain-Adam" style="width: 40%;">
+                    <img src="Assests/Images/Complain-Adam.png" alt="Görsel" id="Complain-Adam" style="width: 40%;">
                     <div class="search-container">
                         <input type="text" id="aranan" class="search-input" placeholder="Ara..." style="background-color: var(--green3);">
                         <button id="arama" class="search-button" type="button" onclick="location.href='#tum-sizlanmalar'" >
@@ -61,7 +61,7 @@
                     <h3 style="text-align: center;">Siz sızlanın, <strong>gerisini bize bırakın</strong></h3>
                 </div>
                 <div class="col-md-6" id="home-right">
-                    <img src="CYCLE DIAGRAM.png" id="diagram" style="width: 80%;" alt="How to Use the Website">              
+                    <img src="Assests/Images/CYCLE DIAGRAM.png" id="diagram" style="width: 80%;" alt="How to Use the Website">              
                 </div>
             </div>
 
@@ -400,9 +400,6 @@
                       <a href="#Sizlanmalar" class="footer-section">
                           Sızlanmalar <br>
                       </a>
-                      <a href="#markalar" class="footer-section">
-                          Markalar
-                      </a>
                   </p>
               </div>
 
@@ -457,6 +454,7 @@
   </footer>
 <!-- Footer Bitiş -->
 
+<!-- Sızlan Popup Form -->
   <button class="open-button" onclick="openForm()">Sızlan</button>
         
   <div class="form-popup" id="form">
@@ -490,8 +488,6 @@
     <script src="Sizlaniyor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      var kullanici_adi = localStorage.getItem("kullaniciadi");
-      var kullanici_sifre = localStorage.getItem("kullanicisifre");
 
 
       function openForm() 

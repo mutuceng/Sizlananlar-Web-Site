@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('.list-group-item:eq(1)').text('Soyisim: ' + b.soyad);
     $('.list-group-item:eq(2)').hide();
     $('.list-group-item:eq(3)').hide();
-    $('.list-group-item:eq(4)').text('Dogum Tarihi: ' + b.dogumtarihi);
+    $('.list-group-item:eq(4)').text('Dogum Tarihi: ' + b.dogumtarihi);   // firma veya kullanıcı girişine göre profildeki bilgi kutularına değer atanıyor
     $('.list-group-item:eq(5)').text('Kullanici adi: '+ b.kullaniciadi);
     $('.list-group-item:eq(6)').hide();
     $('#tip').text(''+ b.kullaniciadi);
@@ -42,14 +42,13 @@ $(document).ready(function () {
 
   var i = 0;
 
-  while (i <= sizSayi) {
+  while (i <= sizSayi) {  
     var sizno = "siz" + i;
     var c = retrievedSizlanmalar ? retrievedSizlanmalar[sizno] : null;
 
     if (c && c.kullaniciadi == kullanici_adi) {
       console.log(c.kullaniciadi);
 
-      // CardItem değişkeni var olarak tanımlansın
       var cardItem = '<div class="col"> <div class="card"> <div class="card-header custom-card-header"> <h5 class="card-title">' + c.baslik + 
       '</div> <div class="card-body"> <a href="#" class="card-text">' + c.firma + '</a> <p class="card-text">' + c.sizlanma + 
       '</p> <h6 class="card-subtitle">' + c.sizlanmatarihi + ' Sitemkar: <a href="#" >' + c.kullaniciadi + '</a></h6> </div> <div class="card-footer custom-card-footer">' + 
