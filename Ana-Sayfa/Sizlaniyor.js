@@ -18,7 +18,7 @@ $(document).ready(function ()
     function increaseCounter() 
     {
         counterValue++;
-        $('.sayac > h2').text("Çözüme Ulaşan Sızlanma Sayısı: " + counterValue);
+        $('.sayac > h2').text("Tamamlanan Sızlanma Sayısı: " + counterValue);
     }
 
     setInterval(increaseCounter, 5000);
